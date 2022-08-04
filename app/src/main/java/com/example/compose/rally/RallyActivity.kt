@@ -24,14 +24,19 @@ import androidx.compose.material.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navArgument
+import androidx.navigation.navigation
 import com.example.compose.rally.data.UserData
 import com.example.compose.rally.ui.accounts.AccountsBody
+import com.example.compose.rally.ui.accounts.SingleAccountBody
 import com.example.compose.rally.ui.bills.BillsBody
 import com.example.compose.rally.ui.components.RallyTabRow
+import com.example.compose.rally.ui.navigation.RallyNavHost
 import com.example.compose.rally.ui.overview.OverviewBody
 import com.example.compose.rally.ui.theme.RallyTheme
 
@@ -67,24 +72,7 @@ fun RallyApp() {
                 )
             }
         ) { innerPadding ->
-            NavHost(
-                navController = navController,
-                startDestination = RallyScreen.Overview.name,
-                modifier = Modifier.padding(innerPadding)
-            ) {
-                composable(RallyScreen.Overview.name) {
-                    OverviewBody(
-                        onClickSeeAllAccounts = { navController.navigate(RallyScreen.Accounts.name) },
-                        onClickSeeAllBills = { navController.navigate(RallyScreen.Bills.name) }
-                    )
-                }
-                composable(RallyScreen.Accounts.name) {
-                    AccountsBody(accounts = UserData.accounts)
-                }
-                composable(RallyScreen.Bills.name) {
-                    BillsBody(bills = UserData.bills)
-                }
-            }
+            RallyNavHost(navController = navController, innerPadding = innerPadding)
         }
     }
 }
