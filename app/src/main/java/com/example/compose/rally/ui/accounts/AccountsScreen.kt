@@ -36,7 +36,7 @@ fun AccountsBody(
     onAccountClick: (String) -> Unit = {},
 ) {
     StatementBody(
-        modifier = Modifier.semantics { contentDescription = "Accounts Screen" },
+        modifier = Modifier.semantics { contentDescription = "Accounts BottomScreen" },
         items = accounts,
         amounts = { account -> account.balance },
         colors = { account -> account.color },

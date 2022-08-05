@@ -23,7 +23,7 @@ import androidx.compose.material.icons.filled.PieChart
 import androidx.compose.ui.graphics.vector.ImageVector
 
 /**
- * Screen metadata for Rally.
+ * BottomScreen metadata for Rally.
  */
 enum class RallyScreen(
     val icon: ImageVector,
