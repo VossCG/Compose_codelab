@@ -35,6 +35,7 @@ import com.example.compose.rally.data.UserData
 import com.example.compose.rally.ui.accounts.AccountsBody
 import com.example.compose.rally.ui.accounts.SingleAccountBody
 import com.example.compose.rally.ui.bills.BillsBody
+import com.example.compose.rally.ui.bottomNagigation.NestedNavHost
 import com.example.compose.rally.ui.components.RallyTabRow
 import com.example.compose.rally.ui.navigation.RallyNavHost
 import com.example.compose.rally.ui.overview.OverviewBody
@@ -72,7 +73,8 @@ fun RallyApp() {
                 )
             }
         ) { innerPadding ->
-            RallyNavHost(navController = navController, innerPadding = innerPadding)
+//            RallyNavHost(navController = navController, innerPadding = innerPadding)
+            NestedNavHost(navController = navController, innerPadding = innerPadding)
         }
     }
 }
